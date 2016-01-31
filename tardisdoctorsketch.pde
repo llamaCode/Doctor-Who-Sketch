@@ -27,6 +27,7 @@ void draw () {
   tardismove();
   doctor();
   planet();
+  message();
 }
 
 void doctor(){
@@ -67,8 +68,9 @@ void scene(){
   noStroke();
 }
 
-void planet(){  
-//PLANET
+void planet(){
+  
+//PLANET APPEARS WHEN YOU PRESS P//
   if (keyPressed)
    if (key =='P' || key == 'p') {
   noStroke();
@@ -143,3 +145,10 @@ void tardismove (){
   }
     tardisY=  tardisY + 1;
  }
+ 
+void message(){
+  fill(255);
+  text( "My Dynamic Doctor Who Sketch", 10, 10);
+  text( "By Maria Campagna", 10, 20);
+  text( "CST 112 - Introduction to Programming", 10, 790);
+}
