@@ -12,7 +12,7 @@ float ySpeed= 1;
 
 //SETTING UP THE SCENE//
 void setup() {
-  size(800,800,P3D);
+  size(800,800);
   tardisX= 100;
   tardisY= 100;
   dx=100;
