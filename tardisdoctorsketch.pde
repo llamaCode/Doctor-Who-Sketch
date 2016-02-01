@@ -6,9 +6,9 @@
 float tardisX, tardisY;
 float dx, dy;
 float lightR, lightG, lightB;
-
-float xSpeed = 3;
-float ySpeed= 1;
+float doctorX, doctorY;
+float xSpeed = 1, ySpeed= 3;
+float dySpeed= 3, dxSpeed= 1;
 
 //SETTING UP THE SCENE//
 void setup() {
@@ -17,19 +17,22 @@ void setup() {
   tardisY= 100;
   dx=100;
   dy=100;
+  doctorX = 100;
+  doctorY = 100;
   
   noStroke();
   smooth();
-  frameRate(60);
+  frameRate(50);
   
 }
 
 void draw () {
   scene();
-  tardis();
+  planets();
   tardismove();
   doctor();
-  planets();
+  doctormove();
+  tardis();
   message();
 }
 
@@ -40,28 +43,28 @@ void doctor(){
 }
 //BODY
 fill(128,75,23);
-rect(mouseX, mouseY, 30, 100);
+rect(doctorX, doctorY, 30, 100);
 fill(181,118,54);
-rect(mouseX, mouseY, 30,50);
+rect(doctorX, doctorY, 30,50);
 
 
 //HEAD
 fill(247,220,193);
-ellipse(mouseX, mouseY-30, 60,60);
+ellipse(doctorX, doctorY-30, 60,60);
 
 //HAT
 fill(201,20,20);
-rect(mouseX, mouseY-65, 30,20);
+rect(doctorX, doctorY-65, 30,20);
 
 //EYES
 fill(0);
-ellipse(mouseX-19, mouseY-30, 16,16);
-ellipse(mouseX+19, mouseY-30, 16,16);
+ellipse(doctorX-19, doctorY-30, 16,16);
+ellipse(doctorX+19, doctorY-30, 16,16);
 
 //LEGS
 stroke(150);
-line(mouseX-10, mouseY+50, pmouseX-10, pmouseY+100);
-line(mouseX+10, mouseY+50, pmouseX+10, pmouseY+100);
+line(doctorX-10, doctorY+50, doctorX-10, doctorY+100);
+line(doctorX+10, doctorY+50, doctorX+10, doctorY+100);
 }
 
 
@@ -74,8 +77,6 @@ void scene(){
 void planets(){
   
 //PLANETs APPEAR WHEN YOU PRESS P//
-  if (keyPressed)
-   if (key =='P' || key == 'p') {
   noStroke();
   
   //SATURN
@@ -93,7 +94,7 @@ void planets(){
   fill(255,69,69);
   ellipse(550,450,200,200);
   }
-}
+
 
 void tardis() {
   
@@ -151,11 +152,27 @@ void tardismove (){
   if ((tardisX > width) || (tardisX < 0)) {
     xSpeed = xSpeed * -1;
   }
-  if ((tardisY > height || tardisY < 0)) {
+  if ((tardisY > height) || (tardisY < 0)) {
         ySpeed = ySpeed * -1;
   }
 }
- 
+
+//MAKING THE DOCTOR MOVE 
+void doctormove (){
+  doctorX = doctorX + ySpeed;
+  
+  if ((doctorX > width) || (doctorX < 0)) {
+    dySpeed = dySpeed * -1;
+  }
+  if ((doctorY > height) || (doctorY < 0)){
+    dxSpeed = dxSpeed * -1;
+  }
+  else if (mousePressed){
+    doctorX = mouseX;
+    doctorY = mouseY;
+  }
+}
+
 void message(){
   fill(255);
   textSize(20);
