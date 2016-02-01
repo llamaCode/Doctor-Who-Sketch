@@ -26,7 +26,7 @@ void draw () {
   tardis();
   tardismove();
   doctor();
-  planet();
+  planets();
   message();
 }
 
@@ -68,16 +68,27 @@ void scene(){
   noStroke();
 }
 
-void planet(){
+void planets(){
   
-//PLANET APPEARS WHEN YOU PRESS P//
+//PLANETs APPEAR WHEN YOU PRESS P//
   if (keyPressed)
    if (key =='P' || key == 'p') {
   noStroke();
+  
+  //SATURN
   fill(255, 154,23);
   ellipse(200,200,180,180);
   fill(173,64,9,80);
   ellipse(200,200,300,10);
+  
+  /*PLUTO ...yes, yes pluto is no longer a "planet"
+  but when I was growing up, Bill Nye taught me otherwise...*/
+  fill(144,195,212);
+  ellipse(300,500,100,100);
+
+  //MARS
+  fill(255,69,69);
+  ellipse(550,450,200,200);
   }
 }
 
@@ -148,7 +159,8 @@ void tardismove (){
  
 void message(){
   fill(255);
-  text( "My Dynamic Doctor Who Sketch", 10, 10);
-  text( "By Maria Campagna", 10, 20);
-  text( "CST 112 - Introduction to Programming", 10, 790);
+  textSize(20);
+  text( "My Dynamic Doctor Who Sketch", 10, 20);
+  text( "By Maria Campagna", 10, 40);
+  text( "CST 112 - Introduction to Programming", 10, 60);
 }
