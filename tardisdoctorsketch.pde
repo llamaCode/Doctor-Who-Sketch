@@ -7,6 +7,9 @@ float tardisX, tardisY;
 float dx, dy;
 float lightR, lightG, lightB;
 
+float xSpeed = 3;
+float ySpeed= 1;
+
 //SETTING UP THE SCENE//
 void setup() {
   size(800,800,P3D);
@@ -96,8 +99,7 @@ void tardis() {
   
 //***TARDIS***//
 
-//LIGHT ON TOP//
-/*Explanation of color randomness in windows & top light
+/*LIGHT ON TOP & WINDOW EXPLANATION
 Light R, G and B are all set to random
 filling the light with random R, G and 
 B values allowing the lights on top as 
@@ -140,22 +142,19 @@ different colors*/
   ellipse(tardisX+95, tardisY+140, dx-80, dy-80);
 }
 
-//TARDIS MOVES UP
-
-/*IF the Tardis's Y point is GREATER than the height, 
-then the tardis Y is reset to 0 and the tardis x value 
-is reset to somewhere random up to 500
-
-In addition, the tardis moves down the screen due to the y 
-point having 1 added to it's initial value*/
+//TARDIS BOUNCES AROUND THE SCREEN 
 
 void tardismove (){
-  if (tardisY > height) {
-    tardisY=  0;
-    tardisX=  random( 0, 600 );
+  tardisX = tardisX + xSpeed;
+  tardisY = tardisY + ySpeed;
+
+  if ((tardisX > width) || (tardisX < 0)) {
+    xSpeed = xSpeed * -1;
   }
-    tardisY=  tardisY + 1;
- }
+  if ((tardisY > height || tardisY < 0)) {
+        ySpeed = ySpeed * -1;
+  }
+}
  
 void message(){
   fill(255);
