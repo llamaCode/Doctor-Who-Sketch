@@ -42,29 +42,29 @@ void doctor(){
   rectMode(CENTER);
 }
 //BODY
-fill(128,75,23);
-rect(doctorX, doctorY, 30, 100);
-fill(181,118,54);
-rect(doctorX, doctorY, 30,50);
+  fill(128,75,23);
+  rect(doctorX, doctorY, 30, 100);
+  fill(181,118,54);
+  rect(doctorX, doctorY, 30,50);
 
 
 //HEAD
-fill(247,220,193);
-ellipse(doctorX, doctorY-30, 60,60);
+  fill(247,220,193);
+  ellipse(doctorX, doctorY-30, 60,60);
 
 //HAT
-fill(201,20,20);
-rect(doctorX, doctorY-65, 30,20);
+  fill(201,20,20);
+  rect(doctorX, doctorY-65, 30,20);
 
 //EYES
-fill(0);
-ellipse(doctorX-19, doctorY-30, 16,16);
-ellipse(doctorX+19, doctorY-30, 16,16);
+  fill(0);
+  ellipse(doctorX-19, doctorY-30, 16,16);
+  ellipse(doctorX+19, doctorY-30, 16,16);
 
 //LEGS
-stroke(150);
-line(doctorX-10, doctorY+50, doctorX-10, doctorY+100);
-line(doctorX+10, doctorY+50, doctorX+10, doctorY+100);
+  stroke(150);
+  line(doctorX-10, doctorY+50, doctorX-10, doctorY+100);
+  line(doctorX+10, doctorY+50, doctorX+10, doctorY+100);
 }
 
 
@@ -76,7 +76,7 @@ void scene(){
 
 void planets(){
   
-//PLANETs APPEAR WHEN YOU PRESS P//
+//PLANETS
   noStroke();
   
   //SATURN
@@ -179,4 +179,8 @@ void message(){
   text( "My Dynamic Doctor Who Sketch", 10, 20);
   text( "By Maria Campagna", 10, 40);
   text( "CST 112 - Introduction to Programming", 10, 60);
+  text("Click with the mouse to drag The Doctor and reset his position", 10,80);
 }
+
+
+
